@@ -8,5 +8,9 @@ class Meal(db.Model):
     __tablename__ = "meal"
     meal_id = sa.Column(sa.Integer, primary_key=True)
     account_id = sa.Column(Integer, ForeignKey("account.account_id"))
-    note = sa.Column(sa.String)
+    notes = sa.Column(sa.String)
     type = sa.Column(sa.String)
+    image_path = sa.Column(sa.String)
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
