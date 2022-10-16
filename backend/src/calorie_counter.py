@@ -115,4 +115,5 @@ def count_calories (img_path, weight):
     image = Image.open(img_path)
     pred = predict(image)
     output = get_cc(pred, weight)
+    output['healthy_food'] = pred not in unhealty
     return (pred, output)
