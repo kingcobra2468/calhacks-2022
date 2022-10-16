@@ -12,10 +12,10 @@ load_dotenv()
 
 app = Flask(__name__)
 
-conn = os.environ["COCKROACH_DB_URI"]
+conn = os.environ['COCKROACH_DB_URI']
 engine = create_engine(conn)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = conn
+app.config['SQLALCHEMY_DATABASE_URI'] = conn
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
