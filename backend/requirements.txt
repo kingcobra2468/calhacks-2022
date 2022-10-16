@@ -1,0 +1,14 @@
+autopep8==1.7.0
+psycopg2-binary==2.9.4
+Flask==2.0.3
+Flask-Cors==3.0.10
+Flask-SQLAlchemy==2.5.1
+requests==2.27.1
+SQLAlchemy==1.4.41
+sqlalchemy-cockroachdb==1.4.4
+python-dotenv==0.20.0
+transformers==4.23.1
+pandas==1.5.0
+pillow==9.2.0
+xlrd==1.2.0
+torch
