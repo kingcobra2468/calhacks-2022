@@ -41,7 +41,7 @@ def register():
         return {
             'status': 'fail',
             'data': {
-                'msg': 'Account does not exist'
+                'msg': 'Account does exist'
             }
         }, 403
 
@@ -55,3 +55,22 @@ def register():
             'id': account.account_id
         }
     }
+
+@accounts_blueprint.route('/accounts/<account_id>', methods=['GET'])
+def get_username(account_id):
+    account = Account.query.filter_by(
+        account_id=account_id).first()
+    if not account:
+        return {
+            'status': 'fail',
+            'data': {
+                'msg': 'Account does not exist'
+            }
+        }, 403
+
+    return {
+        'status': 'success',
+        'data': {
+            'username': account.username
+        }
+    }, 200
