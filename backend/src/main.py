@@ -2,6 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from flask import Flask
+from flask_cors import CORS
 from sqlalchemy import create_engine
 
 from model import db
@@ -11,6 +12,7 @@ from route import accounts_blueprint, meals_blueprint
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 conn = os.environ['COCKROACH_DB_URI']
 engine = create_engine(conn)
