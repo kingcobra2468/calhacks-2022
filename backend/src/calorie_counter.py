@@ -4,7 +4,7 @@ import pandas as pd
 extractor = ViTFeatureExtractor.from_pretrained("nateraw/food")
 model = ViTForImageClassification.from_pretrained("nateraw/food")
 dataset = pd.read_excel('../datasets/database.xlsx', skiprows=1)
-unhealty = set('apple_pie', 
+unhealty = set(['apple_pie', 
              'baby_back_ribs',
              'grilled_cheese_sandwich',
              'baklava',
@@ -51,7 +51,7 @@ unhealty = set('apple_pie',
              'beef_tartare',
              'pork_chop',
              'pulled_pork_sandwich'
-             )
+             ])
 def predict(image):
     input = extractor(images=image, return_tensors='pt')
     output = model(**input)
@@ -103,6 +103,7 @@ def get_cc(img_class, weight):
     food = img_class.split('_')
     if food[-1][-1] == "s":
         food[-1] = food[-1][:-1]
+    food_dict = {}
     food_dict['food_pred'] = None
     counter = 0
     while (not food_dict['food_pred']) &  (counter <= 4):

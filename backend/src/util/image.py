@@ -8,4 +8,4 @@ def save_image_base64(contents, id):
     with open(img_path , 'wb') as fh:
         fh.write(base64.b64decode(contents))
 
-    return os.path.join('/static/', f'{id}.png')
+    return img_path
