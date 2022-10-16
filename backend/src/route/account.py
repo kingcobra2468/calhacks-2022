@@ -28,24 +28,6 @@ def login():
         }
     }
 
-@accounts_blueprint.route('/accounts/username/<account_id>', methods=['GET'])
-def get_username():
-    account = Account.query.filter_by(
-        uuid=uuid).first()
-    if not account:
-        return {
-            'status': 'fail',
-            'data': {
-                'msg': 'Account does not exist'
-            }
-        }, 401
-
-    return {
-        'status': 'success',
-        'data': {
-            'username': account.username
-        }
-    }
 
 @accounts_blueprint.route('/accounts/registration', methods=['POST'])
 def register():
