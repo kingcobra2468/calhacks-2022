@@ -1,4 +1,5 @@
 autopep8==1.7.0
+psycopg2-binary==2.9.4
 Flask==2.0.3
 Flask-Cors==3.0.10
 Flask-SQLAlchemy==2.5.1
