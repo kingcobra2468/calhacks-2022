@@ -12,7 +12,7 @@ def login():
     password = request.json.get('password')
 
     account = Account.query.filter_by(
-        username=username).first()
+        username=username, password=password).first()
     if not account:
         return {
             'status': 'fail',
