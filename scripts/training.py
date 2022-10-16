@@ -22,7 +22,6 @@ from skimage import io
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data.dataset import random_split
 from sklearn.model_selection import train_test_split
-import boto3
 import joblib
 
 unhealthy = ['apple_pie', 
@@ -177,6 +176,9 @@ class LightningCNN(pl.LightningModule):
         #this runs in every single GPU
         self.trn = FoodDataset(dfFull, IMAGEDIR, self.preprocess)
         self.tst = FoodDataset(dfFull, IMAGEDIR, self.preprocess)
+  def train_dataloader(self):
+        train_loader = DataLoader(self.trn, batch_size=32, num_workers=8)
+        return train_loader
 
 def train():
   model = LightningCNN()
